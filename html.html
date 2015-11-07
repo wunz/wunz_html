@@ -1,17 +1,120 @@
-<html	>
+<html>
+	
 	<head>
+		<style type="text/css">
+			
+			input { color:red; width:80px;height:90px;font-size:50px}
+		</style>
 		
-		<h1>this is h1</h1>
+		<script type="text/javascript">
+			var tmpVal=0,retVal=0;
+			var operV ="";
+			function oper(obj)
+			{
+				
+				if(tmpVal != 0)
+				{
+					  retVal = tmpVal;
+					  tmpVal=0;
+				}
+				
+				 if(operV == "")
+				 {
+				  operV = obj.value;
+				 }
+				 else
+				 	{
+				 		alert("have set oper");
+				 		alert(operV);
+				 	}
+			    
+			}
+			function set(obj)
+			{
+				
+				if(tmpVal == 0)
+				{
+					tmpVal= obj.value;
+				}
+				else 
+					{
+						tmpVal = Number(tmpVal*10) + Number(obj.value);
+					}
+				
+			}
 			
-			
-			<h2>this is h2</h2>
-		</head>
-	<body bgcolor = "red">
-		 <p>this is my  first html </p>
 
-    <hr />	
-    
-    
-       <a href="www.baidu.com">°Ù¶È</a>	
-		</body>
-	</html>
+			function getVal()
+			{
+				var inval=0;
+				if(operV == "")
+				{
+					 alert(tmpVal);
+					
+				}
+				else if( operV == "+")
+				{
+					
+						retVal = Number(retVal) + Number(tmpVal);
+						
+			  }
+         else if(operV == "-")
+				{
+					  retVal = Number(retVal) - Number(tmpVal);
+							  
+			  }else if(operV == "*")
+				{
+						retVal = Number(retVal) *Number(tmpVal);
+			  }else if(operV == "/")
+				{
+						retVal = Number(retVal)/Number(tmpVal);
+				}else
+				{
+						alert("no support oper");
+				}
+					inval = retVal;
+					 tmpVal=0;
+					 retVal=0;
+					 operV="";
+					 alert(inval);
+					
+				
+			}
+		</script>
+		
+	</head>
+	
+	<body>
+		
+		<div align="center">
+			
+			<input value=1 style="align:center;color:bule;" type="button" onclick="set(this)"></input>		
+			<input value=2 style="align:center;color:bule;" type="button" onclick="set(this)"></input>				
+			<input value=3 style="align:center;color:bule;" type="button" onclick="set(this)"></input>	
+			<br />				
+			<input value="4" style="align:center;color:bule;" type="button" onclick="set(this)"></input>			
+			<input value="5" style="align:center;color:bule;" type="button" onclick="set(this)"></input>					
+			<input value="6" style="align:center;color:bule;" type="button" onclick="set(this)"></input>			
+			<br />
+			<input value="7" style="align:center;color:bule;" type="button" onclick="set(this)"></input>		
+			<input value="8" style="align:center;color:bule;" type="button" onclick="set(this)"></input>		
+						
+			<input value="9" style="align:center;color:bule;" type="button" onclick="set(this)"></input>
+			<input value="0" style="align:center;color:bule;" type="button" onclick="set(this)"></input>
+		</div>
+		
+		
+		<div align="center">
+		<input value="+" style="align:center;color:bule;" type="button" onclick="oper(this)"></input>
+		<input value="-" style="align:center;color:bule;" type="button" onclick="oper(this)"></input>
+		<input value="*" style="align:center;color:bule;" type="button" onclick="oper(this)"></input>
+		<input value="/" style="align:center;color:bule;" type="button" onclick="oper(this)"></input>
+		</div>	
+		<div align="center">
+				<input value="=" style="align:center;color:bule;" type="button" onclick="getVal()"></input>
+		</div>	
+		
+		
+		
+	</body>
+</html>
